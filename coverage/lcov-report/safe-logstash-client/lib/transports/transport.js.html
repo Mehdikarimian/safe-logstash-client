@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for safe-logstash-client/lib/transports/transport.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">safe-logstash-client/lib/transports/transport.js</span></h1>
+    <h2>
+        Statements: <span class="metric">33.33% <small>(9 / 27)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">33.33% <small>(9 / 27)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">safe-logstash-client/lib/transports/</a> &#187; transport.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict'
+&nbsp;
+var EventEmitter = require('events').EventEmitter
+var inherits = require('util').inherits
+var debug = require('debug')('logstash:transport')
+&nbsp;
+<span class="fstat-no" title="function not covered" >function Transport (options) {</span>
+<span class="cstat-no" title="statement not covered" >  EventEmitter.apply(this, arguments)</span>
+<span class="cstat-no" title="statement not covered" >  options = options || {}</span>
+<span class="cstat-no" title="statement not covered" >  this.queue = []</span>
+<span class="cstat-no" title="statement not covered" >  this.host = options.host</span>
+<span class="cstat-no" title="statement not covered" >  this.port = options.port</span>
+<span class="cstat-no" title="statement not covered" >  this.options = options</span>
+}
+&nbsp;
+inherits(Transport, EventEmitter)
+&nbsp;
+Transport.prototype.send = <span class="fstat-no" title="function not covered" >function send (message, cb) {</span>
+<span class="cstat-no" title="statement not covered" >  if (this.connected) {</span>
+<span class="cstat-no" title="statement not covered" >    debug('sending message asap')</span>
+<span class="cstat-no" title="statement not covered" >    return this._send(message, cb)</span>
+  }
+<span class="cstat-no" title="statement not covered" >  debug('queueing message')</span>
+<span class="cstat-no" title="statement not covered" >  this.queue.push({</span>
+    message: message,
+    cb: cb
+  })
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (this.queue.length &gt; this.options.maxQueueSize) {</span>
+<span class="cstat-no" title="statement not covered" >    this.queue.shift()</span>
+  }
+}
+&nbsp;
+Transport.prototype._send = <span class="fstat-no" title="function not covered" >function _send () {</span>
+<span class="cstat-no" title="statement not covered" >  throw new Error('_send should be implementend by transport')</span>
+}
+&nbsp;
+Transport.prototype.dequeue = <span class="fstat-no" title="function not covered" >function dequeue () {</span>
+<span class="cstat-no" title="statement not covered" >  debug('dequeuing %s messages', this.queue.length)</span>
+<span class="cstat-no" title="statement not covered" >  while (this.queue.length) {</span>
+<span class="cstat-no" title="statement not covered" >    var obj = this.queue.shift()</span>
+<span class="cstat-no" title="statement not covered" >    this._send(obj.message, obj.cb)</span>
+  }
+}
+&nbsp;
+module.exports = Transport
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Oct 06 2018 10:16:25 GMT+0330 (Iran Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
