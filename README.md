@@ -1,5 +1,7 @@
 General purpose logstash
 
+[![Build Status](https://travis-ci.org/Mehdikarimian/safe-logstash-client.svg?branch=master)](https://travis-ci.org/Mehdikarimian/safe-logstash-client)
+
 ## Features
 
 * tcp uses [juliangruber](https://github.com/juliangruber)'s [reconnect-net](https://github.com/juliangruber/reconnect-net) for handling reconnection

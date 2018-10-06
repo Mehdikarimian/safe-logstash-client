@@ -15,7 +15,7 @@ test('Client ctor', function (t) {
       {
         type: 'non-existent'
       },
-      'should throw if type isnt tcp or udp or memory'
+      'should throw if type isnt tcp or udp'
     )
   })
   t.end()
@@ -29,7 +29,7 @@ test('Client should create new instance', function (t) {
 })
 
 test('Formatting', function (t) {
-  var client = Client({ type: 'memory' })
+  var client = Client({ type: 'tcp' })
   var obj = [
     {
       foo: 'bar'
@@ -42,7 +42,7 @@ test('Formatting', function (t) {
 })
 test('custom formatting', function (t) {
   var client = Client({
-    type: 'memory',
+    type: 'tcp',
     format: function () {
       return 'foo'
     }

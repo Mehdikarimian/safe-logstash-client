@@ -3,9 +3,9 @@
 var Client = require('..')
 var test = require('tap').test
 
-test('Client with memory', function (t) {
+test('Client with tcp', function (t) {
   var client = Client({
-    type: 'memory'
+    type: 'tcp'
   })
 
   client.send({
