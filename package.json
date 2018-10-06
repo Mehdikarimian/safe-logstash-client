@@ -1,0 +1,36 @@
+{
+  "name": "safe-logstash-client",
+  "version": "1.0.0",
+  "description": "General logstash client",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/",
+    "cover": "istanbul cover test/*.js",
+    "coveralls": "cat coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Mehdikarimian/safe-logstash-client.git"
+  },
+  "keywords": [
+    "logstash",
+    "logging",
+    "safe"
+  ],
+  "author": "Mehdi Karimian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mehdikarimian/safe-logstash-client/issues"
+  },
+  "homepage": "https://github.com/Mehdikarimian/safe-logstash-client",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "fast-safe-stringify": "^2.0.6",
+    "reconnect-net": "0.0.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.1",
+    "istanbul": "^0.3.0",
+    "tap": "^0.4.12"
+  }
+}
