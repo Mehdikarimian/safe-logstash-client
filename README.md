@@ -11,7 +11,7 @@ General purpose logstash
 ## Example
 
 ```js
-var Logstash = require('logstash-client');
+var Logstash = require('safe-logstash-client');
 
 var logstash = new Logstash({
   type: 'udp', // udp, tcp
